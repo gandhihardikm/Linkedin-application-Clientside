@@ -1,0 +1,264 @@
+    <!-- top nav -->
+<!doctype html>
+<html ng-app="successLogin">
+<head>
+<!--  <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.26/angular.min.js"></script> -->
+<script src="../routes/angular.js"></script>
+<link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" />
+<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<meta name="generator" content="Bootply" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<link href="../routes/css/bootstrap.min.css" rel="stylesheet">
+<!--[if lt IE 9]>
+      <script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+<link href="../routes/css/styles.css" rel="stylesheet">
+<script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+<script src="http://angular-ui.github.io/bootstrap/ui-bootstrap-tpls-0.12.1.js"></script>
+<script src="../routes/bootstrap.min.js"></script>
+<title>Home</title>
+</head>
+<body ng-controller="homePageController">
+	<!-- Header Start -->
+	<nav class="navbar navbar-fixed-top header">
+		<div class="col-md-12">
+			<div class="navbar-header">
+
+				<!-- <a href="#" class="navbar-brand">Bootstrap</a> -->
+				<button type="button" class="navbar-toggle" data-toggle="collapse"
+					data-target="#navbar-collapse1">
+					<i class="glyphicon glyphicon-search"></i>
+				</button>
+
+			</div>
+			<div class="collapse navbar-collapse" id="navbar-collapse1">
+				<form class="navbar-form pull-left">
+					<div class="input-group" style="max-width: 470px;">
+						<input type="text" class="form-control" placeholder="Search"
+							name="srch-term" id="srch-term">
+						<div class="input-group-btn">
+							<button class="btn btn-default btn-primary" type="submit">
+								<i class="glyphicon glyphicon-search"></i>
+							</button>
+						</div>
+					</div>
+				</form>
+				<ul class="nav navbar-nav navbar-right">
+					<li><a href="#" class="dropdown-toggle" data-toggle="dropdown"><i
+							class="glyphicon glyphicon-bell"></i></a>
+						<ul class="dropdown-menu">
+							<li><a href="#"><span class="badge pull-right">40</span>Link</a></li>
+							<li><a href="#"><span class="badge pull-right">2</span>Link</a></li>
+							<li><a href="#"><span class="badge pull-right">0</span>Link</a></li>
+							<li><a href="#"><span
+									class="label label-info pull-right">1</span>Link</a></li>
+							<li><a href="#"><span class="badge pull-right">13</span>Link</a></li>
+						</ul></li>
+					<li><a href="#" id="btnToggle"><i
+							class="glyphicon glyphicon-th-large"></i></a></li>
+					<li><a href="#"><i class="glyphicon glyphicon-user"></i></a></li>
+				</ul>
+			</div>
+		</div>
+	</nav>
+	<div class="navbar navbar-default" id="subnav">
+		<div class="col-md-12"></div>
+		<div class="collapse navbar-collapse" id="navbar-collapse2"
+			style="padding-left: 100px;">
+			<ul class="nav navbar-nav navbar-left">
+				<li class="active"><a href="/">Home</a></li>
+				<li><a href="#profileModal" role="button" data-toggle="modal">Profile</a></li>
+				<li><a href="#connectionModal" role="button"
+					data-toggle="modal">Connections</a></li>
+				<li><a href="#educationModal" role="button" data-toggle="modal">Education</a></li>
+			</ul>
+		</div>
+	</div>
+	</div>
+	<!-- Header End -->
+	<!--main-->
+	<div class="container" id="main">
+		<div class="row">
+			<div class="col-md-8 col-sm-1">
+				<div class="well">
+					<form class="form-horizontal" role="form">
+						<div class="form-group"
+							style="padding-left: 15px; padding-right: 15px;">
+							<textarea class="form-control" placeholder="Update your status"></textarea>
+						</div>
+						<button class="btn btn-success" type="button">Post</button>
+					</form>
+				</div>
+			</div>
+		</div>
+		<!--/row-->
+
+		<div class="row">
+			<div class="col-md-12">
+				<h2>Posts</h2>
+			</div>
+			<div class="col-md-12 col-sm-12">
+				<div class="panel panel-default">
+					<div class="panel-heading">
+						<h4>Something</h4>
+					</div>
+					<div class="panel-body">
+						<img
+							src="https://lh5.googleusercontent.com/-b0-k99FZlyE/AAAAAAAAAAI/AAAAAAAAAAA/eu7opA4byxI/photo.jpg?sz=70"
+							class="img-circle pull-right"> <a href="#">Guidance and
+							Tools</a>
+						<div class="clearfix"></div>
+						<hr>
+						<p>
+							Seriously Anything <a href="http://google.com">Google</a>
+							Whatever
+						</p>
+						<h5>
+							<a href="http://google.com/">More on Anything</a>
+						</h5>
+
+					</div>
+				</div>
+			</div>
+			<div class="col-md-12 col-sm-12">
+				<div class="panel panel-default">
+					<div class="panel-heading">
+						<a href="#" class="pull-right">View all</a>
+						<h4>Profiles</h4>
+					</div>
+					<div class="panel-body">
+						Check out some of our member profiles..
+						<hr>
+						<div class="well well-sm">
+							<div class="media">
+								<a class="thumbnail pull-left" href="#"> <img
+									class="media-object" src="https://www.google.com/url?sa=i&rct=j&q=&esrc=s&source=images&cd=&cad=rja&uact=8&ved=0CAcQjRw&url=https%3A%2F%2Fgithub.com%2Fvipulkanade&ei=K68CVeSFJ5K0ogS7nYLwBQ&bvm=bv.88198703,d.cGU&psig=AFQjCNEyriv343Hqxa8PBnLbiJBR3S9mZA&ust=1426325679652258">
+								</a>
+								<div class="media-body">
+									<h4 class="media-heading">Vipul Kanade</h4>
+									<p>
+										<span class="label label-info">10 photos</span> <span
+											class="label label-primary">89 followers</span>
+									</p>
+									<p>
+										<a href="#" class="btn btn-xs btn-default"><span
+											class="glyphicon glyphicon-comment"></span> Message</a> <a
+											href="#" class="btn btn-xs btn-default"><span
+											class="glyphicon glyphicon-heart"></span> Favorite</a>
+									</p>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col-md-12 col-sm-12">
+				<div class="panel panel-default">
+					<div class="panel-heading">
+						<a href="#" class="pull-right">View all</a>
+						<h4>Inspiration</h4>
+					</div>
+					<div class="panel-body">
+						<img src="//placehold.it/150" class="img-circle pull-right">
+						<a href="#">Articles</a>
+						<div class="clearfix"></div>
+						<hr>
+						<div class="clearfix"></div>
+						<img src="http://placehold.it/120x90/3333CC/FFF"
+							class="img-responsive img-thumbnail pull-right">
+						<p>Write Anything here and you'll read I Know!!!</p>
+						<div class="clearfix"></div>
+						<hr>
+						<div class="clearfix"></div>
+						<img src="http://placehold.it/120x90/33CC33/FFF"
+							class="img-responsive img-thumbnail pull-left"
+							style="margin-right: 5px;">
+						<p>Mobile first" is a responsive Web design practice that
+							prioritizes consideration of smart phones and mobile devices when
+							creating Web pages.</p>
+
+
+					</div>
+				</div>
+			</div>
+			<!--/articles-->
+		</div>
+
+		<hr>
+
+		<div class="row">
+			<div class="col-sm-12 col-xs-12">
+				<div class="panel panel-default">
+					<div class="panel-thumbnail">
+						<img src="//placehold.it/450X300/DD3333/EE3333"
+							class="img-responsive">
+					</div>
+					<div class="panel-body">
+						<p class="lead">Hacker News</p>
+						<p>120k Followers, 900 Posts</p>
+
+						<p>
+							<img src="http://api.randomuser.me/portraits/med/men/20.jpg"
+								width="28px" height="28px"> <img
+								src="http://api.randomuser.me/portraits/med/men/21.jpg"
+								width="28px" height="28px"> <img
+								src="http://api.randomuser.me/portraits/med/men/14.jpg"
+								width="28px" height="28px">
+						</p>
+					</div>
+				</div>
+			</div>
+			<!--/col-->
+
+			<div class="col-sm-12 col-xs-12">
+				<div class="panel panel-default">
+					<div class="panel-thumbnail">
+						<img src="//placehold.it/450X300/DD66DD/EE77EE"
+							class="img-responsive">
+					</div>
+					<div class="panel-body">
+						<p class="lead">New York Times</p>
+						<p>902 Followers, 88 Posts</p>
+
+						<p>
+							<img src="http://api.randomuser.me/portraits/med/men/4.jpg"
+								width="28px" height="28px"> <img
+								src="http://api.randomuser.me/portraits/med/men/24.jpg"
+								width="28px" height="28px">
+						</p>
+					</div>
+				</div>
+			</div>
+			<!--/col-->
+
+			<div class="col-sm-12 col-xs-12">
+				<div class="panel panel-default">
+					<div class="panel-thumbnail">
+						<img src="//placehold.it/450X300/2222DD/2222EE"
+							class="img-responsive">
+					</div>
+					<div class="panel-body">
+						<p class="lead">Social Media</p>
+						<p>19k Followers, 789 Posts</p>
+
+						<p>
+							<img src="http://api.randomuser.me/portraits/med/women/4.jpg"
+								height="28px"> <img
+								src="http://api.randomuser.me/portraits/med/men/4.jpg"
+								width="28px" height="28px">
+						</p>
+					</div>
+				</div>
+			</div>
+			<!--/col-->
+
+		</div>
+		<hr>
+</body>
+
+<!-- Scripts -->
+<script src="../routes/angular-cookies.js"> </script>
+<script src="../angular_controller/js/success_login.js"> </script>
+</html>

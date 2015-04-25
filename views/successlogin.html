@@ -1,11 +1,108 @@
 <!doctype html>
-<html>
+<html ng-app="successLogin">
 <head>
-<script
-	src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.26/angular.min.js"></script>
-<title>Succcess</title>
+<!--  <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.26/angular.min.js"></script> -->
+<script src = "../routes/angular.js"></script>
+<link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" />
+<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+<title>Home</title>
 </head>
-<body>
-	<h1>Login Succesful</h1>
+<style>
+#search {
+	margin-left: 30%
+}
+
+#userprofilemenu {
+	margin-left: 10%
+}
+</style>
+<body ng-controller="successLoginController">
+	<div>
+		<nav class="navbar navbar-inverse navbar-static-top">
+			<form class="navbar-form navbar-center">
+				<div id="search">
+					<div class="row">
+						<div class="col-lg-6">
+							<div class="input-group">
+								<div class="input-group-btn">
+									<button type="button" class="btn btn-default dropdown-toggle"
+										data-toggle="dropdown" aria-expanded="false">
+										Category <span class="caret"></span>
+									</button>
+									<ul class="dropdown-menu" role="menu">
+										<li><a href="#">People</a></li>
+										<li><a href="#">Jobs</a></li>
+										<li><a href="#">Companies</a></li>
+										<li class="divider"></li>
+
+									</ul>
+								</div>
+								<!-- /btn-group -->
+								<input type="text" ng-model="name" class="form-control"
+									aria-label="..." placeholder="Search">
+
+							</div>
+							<!-- /input-group -->
+						</div>
+						<!-- /.col-lg-6 -->
+						<button type="button" ng-click="homePage()"
+							class="btn btn-default">Search</button>
+
+					</div>
+				</div>
+			</form>
+			<div id="userprofilemenu">
+
+				<div class="container-fluid">
+
+					<div class="navbar-header">
+
+						<button type="button" class="navbar-toggle collapsed"
+							data-toggle="collapse"
+							data-target="#bs-example-navbar-collapse-1">
+							<span class="sr-only">Toggle navigation</span> <span
+								class="icon-bar"></span> <span class="icon-bar"></span> <span
+								class="icon-bar"></span>
+						</button>
+						<a class="navbar-brand" href="#">{{username}}</a>
+					</div>
+					<!-- Collect the nav links, forms, and other content for toggling -->
+
+					<div class="collapse navbar-collapse"
+						id="bs-example-navbar-collapse-1">
+						<ul class="nav navbar-nav">
+							<li><a href="#">Home</a></li>
+							<li class="dropdown"><a href="#" class="dropdown-toggle"
+								data-toggle="dropdown" role="button" aria-expanded="false">Profile
+									<span class="caret"></span>
+							</a>
+								<ul class="dropdown-menu" role="menu">
+									<li><a href="#">Edit Profile</a></li>
+								</ul></li>
+
+						</ul>
+
+						<ul class="nav navbar-nav navbar-right">
+
+							<button type="button" ng-click="signOut()" class="btn btn-default navbar-btn">Sign Out</button>
+
+						</ul>
+					</div>
+					<!-- /.navbar-collapse -->
+
+				</div>
+				<!-- /.container-fluid -->
+			</div>
+		</nav>
+	</div>
 </body>
+<!-- Scripts -->
+<script
+	src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+<script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+<script
+	src="http://angular-ui.github.io/bootstrap/ui-bootstrap-tpls-0.12.1.js"></script>
+	<script src = "../routes/angular-cookies.js"></script>
+<script src="../angular_controller/js/success_login.js">
+</script>
 </html>

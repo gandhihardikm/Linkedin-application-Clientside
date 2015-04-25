@@ -1,0 +1,240 @@
+<!-- top nav -->
+<!doctype html>
+<html >
+<head>
+<script src="../routes/angular.min.js"></script>
+<script src="../bower_components/angular-xeditable/dist/js/xeditable.js"></script>
+<link href="../bower_components/angular-xeditable/dist/css/xeditable.css" rel="stylesheet">
+<link href="../routes/css/bootstrap.min.css" rel="stylesheet">
+<link href="../routes/css/styles.css" rel="stylesheet">
+<script src="../routes/bootstrap.min.js"></script>
+<script src="../routes/angular-cookies.js"> </script>
+<script src="../angular_controller/js/success_login.js"> </script>
+<title>Home</title>
+</head>
+<body ng-app="homePageApp" ng-controller="homePageController">
+	<!-- Header Start -->
+	<nav class="navbar navbar-fixed-top header">
+		<div class="col-md-12">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle" data-toggle="collapse"
+					data-target="#navbar-collapse1">
+					<i class="glyphicon glyphicon-search"></i>
+				</button>
+			</div>
+			<div class="collapse navbar-collapse" id="navbar-collapse1">
+				<form class="navbar-form pull-left">
+					<div class="input-group" style="max-width: 470px;">
+						<input type="text" ng-model="searchString" class="form-control" placeholder="Search"
+							name="srch-term" id="srch-term">
+						<div class="input-group-btn">
+							<button class="btn btn-default btn-primary" ng-click="search()" type="submit">
+								<i class="glyphicon glyphicon-search"></i>
+							</button>
+						</div>
+					</div>
+				</form>
+				<ul class="nav navbar-nav navbar-right">
+					<li>Last Login : {{last_Login}}</li>
+				</ul>
+			</div>
+		</div>
+	</nav>
+	<div class="navbar navbar-default" id="subnav">
+		<div class="col-md-12"></div>
+		<div class="collapse navbar-collapse" id="navbar-collapse2"
+			style="padding-left: 100px;">
+			<ul class="nav navbar-nav navbar-left">
+				<li><a href="/successLogin">Profile</a></li>
+				<li><a href="/connections" role="button"
+					data-toggle="modal">Connections</a></li>
+				<li><a href="#signOut" role="button" ng-click="signOut()"
+					data-toggle="modal">Sign Out</a></li>
+			</ul>
+		</div>
+	</div>
+	</div>
+	<!-- Header End -->
+	<!--main-->
+	<div class="container" id="main">
+		<div class="row">
+			<div class="col-md-8 col-sm-12">
+				<div class="panel panel-default">
+					<div class="panel-thumbnail">
+						<div class="panel-heading">
+							<div class="profilepage-userInfo">
+								<img
+									src="https://media.licdn.com/mpr/mpr/shrinknp_200_200/p/6/005/0aa/103/0299008.jpg"
+									class="thumbnail pull-left" width="200px" height="200px">
+									<h4 class="header-padding" href="#"  editable-text="userV.name" onbeforesave="updateUser($data, 'name')">{{ userV.name }}</h4>
+									<br />
+								<div class="panel-body">
+									<div class="profilepage-userInfo">
+										<p href="#" editable-text="userV.professional_headline" onbeforesave="updateUser($data, 'prof_heading')">{{ userV.professional_headline || "Add Professional Headline"}}</p>
+										<p href="#" editable-text="userV.city" onbeforesave="updateUser($data, 'city')">{{ userV.city || "Add City"}}</p> <p href="#" editable-text="userV.state" onbeforesave="updateUser($data, 'state')">{{ userV.state || "Add State"}}</p> <p> Computer Software </p>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="clearfix"></div>
+						<hr>
+					</div>
+				</div>
+			</div>
+			<div class="col-md-8 col-sm-12">
+				<div class="panel panel-default">
+					<div class="panel-heading">
+						<h4>Summary</h4>
+					</div>
+					<div class="panel-body">
+						<h4 class="summary-info" href="#"  editable-textarea="userV.summary" e-rows="5" e-cols="50" onbeforesave="updateUser($data, 'summary')">
+						<pre>{{ userV.summary || "Add Summary"}}</pre></h4>
+					</div>
+				</div>
+			</div>
+			<!--Summary End-->
+			
+			<!--Education Start-->
+			<div class="col-md-8 col-sm-12">
+				<div class="panel panel-default">
+				<div class="panel-heading">
+							<h4>Education <button type="button" ng-click="addEducationToggle()" class="btn btn-default btn-sm pull-right">
+          					<span class="glyphicon glyphicon-plus-sign"></span> Add Education
+        					</button></h4>
+				</div>
+				
+				<div class="panel-body" ng-show="educationDiv">
+						<form>
+							 <div class="form-group">
+							    <label for="University_Name">School</label>
+							    <input type="text" ng-model="school" class="form-control" placeholder="Enter School Name">
+							  </div>
+							  <div class="form-group">
+							    <label for="degree">Degree</label>
+							    <input type="text" ng-model="degree" class="form-control" placeholder="Enter Degree">
+							  </div>
+							  <div class="form-group">
+							    <label for="Courses">Courses</label>
+							    <input type="text" ng-model="courses" class="form-control" placeholder="Enter Courses">
+							  </div>
+							  <div class="form-group">
+							    <label for="Year_of_Joining">Year of Joining</label>
+							    <input type="date" ng-model="yoj" class="form-control">
+							  </div>
+							  <div class="form-group">
+							    <label for="Year_of_Ending">Year of Ending</label>
+							    <input type="date" ng-model="yoe" class="form-control">
+							  </div>
+							  <button type="submit" ng-click="addEducationDetail()"" class="btn btn-default btn-sm"><span class="glyphicon glyphicon-ok-sign"></span> Submit</button>
+							  <button type="button" ng-click="addEducationToggle()" class="btn btn-default btn-sm">
+          						<span class="glyphicon glyphicon-remove-sign"></span> Cancel
+        						</button>
+						</form>
+						
+				</div>
+				<div ng-repeat="eduDetail in eduationDetail" for="{{eduDetail}}">
+					<div class="panel-body">
+						<h4 class="education-info" href="#"  editable-text="eduDetail.University_Name" onbeforesave="updateUser($data, 'summary')">
+						{{ eduDetail.University_Name || "Add Education"}}</h4>
+						<p class="education-info" href="#"  editable-text="eduDetail.Degree" onbeforesave="updateUser($data, 'summary')">
+						{{ eduDetail.Degree || "Add Degree"}}</p>
+						<p class="education-info" href="#"  editable-text="eduDetail.Courses" onbeforesave="updateUser($data, 'summary')">{{ eduDetail.Courses || "Add Courses"}}</p>
+						<p class="education-info" href="#"  editable-text="eduDetail.Year_of_Joining" onbeforesave="updateUser($data, 'summary')">
+						{{ eduDetail.Year_of_Joining || "Add Year of Joining"}}</p>
+						<p class="education-info" href="#"  editable-text="eduDetail.Year_of_Ending" onbeforesave="updateUser($data, 'summary')">{{ eduDetail.Year_of_Ending || "Add Year of Ending"}}</p>
+					</div>
+				</div>
+				</div>
+			</div>
+			<!--Education End-->
+			
+			<!--Experience Start-->
+			<div class="col-md-8 col-sm-12">
+				<div class="panel panel-default">
+				<div class="panel-heading">
+							<h4>Experience <button type="button" ng-click="addExperienceToggle()" class="btn btn-default btn-sm pull-right">
+          					<span class="glyphicon glyphicon-plus-sign"></span> Add Experience
+        					</button></h4>
+				</div>
+				
+				<div class="panel-body" ng-show="experienceDiv">
+						<form>
+							 <div class="form-group">
+							    <label for="company_name">Company Name</label>
+							    <input type="text" ng-model="company" class="form-control" placeholder="Enter Company">
+							  </div>
+							  <div class="form-group">
+							    <label for="jt">Job Title</label>
+							    <input type="text" ng-model="jobTitle" class="form-control" placeholder="Enter Job Title">
+							  </div>
+							  <div class="form-group">
+							    <label for="jd">Job Description</label>
+							    <input type="text" ng-model="jobDesc" class="form-control" placeholder="Enter Job Description">
+							  </div>
+							  <div class="form-group">
+							    <label for="sd">Start Date</label>
+							    <input type="date" ng-model="startDate" class="form-control">
+							  </div>
+							  <div class="form-group">
+							    <label for="ed">End Date</label>
+							    <input type="date" ng-model="endDate" class="form-control">
+							  </div>
+							  <button type="submit" ng-click="addExperienceDetail()"" class="btn btn-default btn-sm"><span class="glyphicon glyphicon-ok-sign"></span> Submit</button>
+							  <button type="button" ng-click="addExperienceToggle()" class="btn btn-default btn-sm">
+          						<span class="glyphicon glyphicon-remove-sign"></span> Cancel
+        						</button>
+						</form>
+				</div>
+				<div ng-repeat="expDetail in experienceDetail" for="{{expDetail}}">
+					<div class="panel-body">
+						<h4 class="education-info" href="#"  editable-text="expDetail.Company_Name" onbeforesave="updateUser($data, 'summary')">
+						{{ expDetail.Company_Name || "Add Company"}}</h4>
+						<p class="education-info" href="#"  editable-text="expDetail.Job_Title" onbeforesave="updateUser($data, 'summary')">
+						{{ expDetail.Job_Title || "Add Job Title"}}</p>
+						<p class="education-info" href="#"  editable-text="expDetail.Job_Profile" onbeforesave="updateUser($data, 'summary')">{{ expDetail.Job_Profile || "Add Job Profile"}}</p>
+						<p class="education-info" href="#"  editable-text="expDetail.Start_Date" onbeforesave="updateUser($data, 'summary')">
+						{{ expDetail.Start_Date || "Add Education"}}</p>
+						<p class="education-info" href="#"  editable-text="expDetail.End_Date" onbeforesave="updateUser($data, 'summary')">{{ expDetail.End_Date || "Add Education"}}</p>
+					</div>
+				</div>
+				</div>
+			</div>
+			<!--Experience End-->
+			
+			<!--Skill Start-->
+			<div class="col-md-8 col-sm-12">
+				<div class="panel panel-default">
+				<div class="panel-heading">
+							<h4>Skill<button type="button" ng-click="addSkillToggle()" class="btn btn-default btn-sm pull-right">
+          					<span class="glyphicon glyphicon-plus-sign"></span> Add Skill
+        					</button></h4>
+				</div>
+				
+				<div class="panel-body" ng-show="skillDiv">
+						<form>
+							 <div class="form-group">
+							    <label for="skill_name">Skill</label>
+							    <input type="text" ng-model="skill" class="form-control" placeholder="Enter Skill">
+							  </div>
+							  <button type="submit" ng-click="addSkillDetail()"" class="btn btn-default btn-sm"><span class="glyphicon glyphicon-ok-sign"></span> Submit</button>
+							  <button type="button" ng-click="addSkillToggle()" class="btn btn-default btn-sm">
+          						<span class="glyphicon glyphicon-remove-sign"></span> Cancel
+        						</button>
+						</form>
+				</div>
+				<div ng-repeat="skillDetail in skillDetail" for="{{skillDetail}}">
+					<div class="panel-body">
+						<h4 class="education-info">{{ skillDetail.Skill_Name }}</h4>
+					</div>
+				</div>
+				</div>
+			</div>
+			<!--Skill End-->
+		</div>
+	</div>
+	<hr>
+</body>
+
+<!-- Scripts -->
+
+</html>
